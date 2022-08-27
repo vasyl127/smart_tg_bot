@@ -26,9 +26,11 @@ module Telegram
 
       def exec_command
         @answer = if it_is_command? || message == '/start'
-                    send normalize_command
+                    # send normalize_command
+                    run_command(normalize_command)
                   else
-                    send steps_controller.steps_list_name.downcase
+                    # send steps_controller.steps_list_name.downcase
+                    run_command(steps_controller.steps_list_name.downcase)
                   end
       end
 
@@ -42,6 +44,18 @@ module Telegram
         keyboard.primary_keys.key(message)
       end
 
+      def run_command(value)
+        change_step(value)
+
+        "::Telegram::Commands::#{value.capitalize}".constantize.new(params).answer
+      end
+
+      def change_step(value)
+        return steps_controller.default_steps if it_is_command? && value == :start || value == :home
+
+        steps_controller.send(value) if it_is_command?
+      end
+
       def start
         steps_controller.default_steps if it_is_command?
         ::Telegram::Commands::Start.new(params).answer
@@ -53,12 +67,12 @@ module Telegram
       end
 
       def language
-        steps_controller.start_language_set if it_is_command?
+        steps_controller.language_set if it_is_command?
         ::Telegram::Commands::LanguageSet.new(params).answer
       end
 
       def notifications
-        steps_controller.start_notifications if it_is_command?
+        steps_controller.notifications if it_is_command?
         ::Telegram::Commands::Notifications.new(params).answer
       end
     end

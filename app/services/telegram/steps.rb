@@ -21,11 +21,11 @@ module Telegram
       first_step HOME
     end
 
-    def start_notifications
+    def notifications
       first_step NOTIFICATIONS
     end
 
-    def start_language_set
+    def language
       first_step LANGUAGE
     end
 

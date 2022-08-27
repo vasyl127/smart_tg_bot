@@ -2,7 +2,7 @@
 
 module Telegram
   module Commands
-    class LanguageSet
+    class Language
       attr_reader :answer, :message, :telegram_id, :errors, :steps_controller,
                   :params, :keyboard, :current_user, :store_params
 

@@ -35,10 +35,10 @@ module Telegram
       end
 
       def prepare_notify
-        return I18n.t('telegram.messages.blank') if notifications.blank?
+        return I18n.t('telegram.errors.blank') if notifications.blank?
 
         string = ''
-        notifications.each { |notify| string += "- #{notify.text}\n\n" }
+        notifications.each { |notify| string += "- #{notify.text[0..200]}\n\n" }
 
         string
       end
@@ -46,7 +46,7 @@ module Telegram
       def delete_all_notify
         notifications.delete_all if notifications.present?
 
-        { text: I18n.t('telegram.messages.notify_deleted'),
+        { text: I18n.t('telegram.messages.notify.deleted'),
           keyboard: keyboard.home_roles_keyboard(current_user.role) }
       end
 

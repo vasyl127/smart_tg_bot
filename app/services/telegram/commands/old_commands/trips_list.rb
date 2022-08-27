@@ -29,7 +29,7 @@ module Telegram
         steps_controller.next_step
         return { text: I18n.t('telegram.messages.trip.trips'), keyboard: keyboard.trips_list(trips) } if trips.present?
 
-        { text: I18n.t('telegram.messages.blank'), keyboard: keyboard.trips_list(trips) }
+        { text: I18n.t('telegram.errors.blank'), keyboard: keyboard.trips_list(trips) }
       end
 
       def in_trip
@@ -51,7 +51,7 @@ module Telegram
       end
 
       def fuel_status
-        return I18n.t('telegram.messages.blank') if trip.fuels.blank?
+        return I18n.t('telegram.errors.blank') if trip.fuels.blank?
 
         string = "#{I18n.t('telegram.messages.fuel')}\n"
         fuels = trip.fuels

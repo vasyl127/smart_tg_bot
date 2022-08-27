@@ -84,7 +84,7 @@ module Telegram
       end
 
       def fuel_status
-        return I18n.t('telegram.messages.blank') if driver.fuels.blank?
+        return I18n.t('telegram.errors.blank') if driver.fuels.blank?
 
         string = "#{I18n.t('telegram.messages.fuel')}\n"
         fuels = driver.fuels
@@ -96,7 +96,7 @@ module Telegram
       end
 
       def repair_request_status
-        return I18n.t('telegram.messages.blank') if driver.repair_requests.blank?
+        return I18n.t('telegram.errors.blank') if driver.repair_requests.blank?
 
         string = "#{I18n.t('telegram.messages.repair_request')}\n"
         requests = driver.repair_requests

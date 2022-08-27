@@ -21,7 +21,7 @@ module Telegram
     end
 
     def blank
-      add_errors I18n.t('telegram.messages.blank')
+      add_errors I18n.t('telegram.errors.blank')
     end
 
     def all_messages

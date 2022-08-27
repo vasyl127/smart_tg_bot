@@ -23,7 +23,7 @@ module Telegram
     end
 
     def new_notify_message(users)
-      message = I18n.t('telegram.messages.new_notify')
+      message = I18n.t('telegram.messages.notify.new')
       users.each do |user|
         params = { chat_id: user.telegram_id, text: message }
         Telegram::Bot::Client.run(TOKEN) { _1.api.sendMessage(params) } if user.telegram_id.present?
