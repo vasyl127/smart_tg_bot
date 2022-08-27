@@ -1,0 +1,79 @@
+en:
+  telegram:
+    buttons:
+      home: '🏠 Home'
+      language: '🇺🇦 Language 🇺🇸'
+      language_en: '🇺🇸 English'
+      language_ua: '🇺🇦 Ukranian'
+      add_driver: '✅ Add driver'
+      add_manager: '👤 Add manager'
+      drivers_list: '🚚 Driver list'
+      managers_list: '👥 Manager list'
+      add_fuel: '⛽ Add fuel'
+      repair_request: '🛠 Repair request'
+      repair_requests: '🛠 Repair requests'
+      delete: '🗑 Delete'
+      fuel: '⛽ Fuel'
+      back: '⬅️ Back'
+      repair_manager: '🛠 Repair manager'
+      trip_manager: '🚚 Trip manager'
+      add_trip: '✅ Add trip'
+      trips_list: '📑 Trips list'
+      notification: '🔔 Notification'
+      delete: '🗑 Clear'
+    errors:
+      error: Errors
+      new_errors: Have a new ERROR, id
+      something: Something went wrong
+      user_absent: Can't find user =(
+      incorect_token: Can't find, check correct token
+      incorect_fuel_capacity: Incorrect format capacity
+      incorect_fuel_price: Incorrect format price
+      not_permission: Not permission
+    messages:
+      trip:
+        trips: '📑 Trips:'
+        list_number: List number
+        shops: Shops
+        distance: Distance
+        weight:  Weight
+        pallets: Pallets count
+        date:  Start date
+        fill_list_number: Enter a list number
+        fill_shops: Enter a shops
+        fill_distance: Enter a distance
+        fill_weight:  Enter weight
+        fill_pallets: Enter a count pallets
+        fill_created: Trip successfully created
+        deleted: Trip successfully deleted
+      notify: 🔔 Notify
+      new_notify: You have a new notification
+      notify_create_trip: create a trip list
+      notify_create_repair: create a repair request
+      notify_deleted: Notifys has been deleted
+      home: 🏠 Home screen 🏠
+      blank: There are no records
+      start: hi!
+      fill_token: Enter a token
+      fuel: Fuel
+      fuel_capacity: Enter a fuel capacity
+      fuel_price: Enter a fuel price
+      fuel_save: 'Fuel note saved'
+      driver_name: Enter a driver name
+      driver_list: 🚚 Drivers list
+      driver_delete: Driver successfully deleted
+      manager_name: Enter a manager name
+      manager_role: Choose a manager role
+      manager_created: 'Manager created, token:'
+      manager_list: 👤 Manager list
+      manager_delete: Manager successfully deleted
+      success_authorize: Successfully authorization
+      repair_request: 🛠 Repair request
+      fill_repair_request: Enter repair request name
+      repair_request_created: Request successfully created
+      chose_language: Chose a language, you current language
+      language_set: now your language, press /start for update
+
+
+
+

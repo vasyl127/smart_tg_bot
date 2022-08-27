@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name,: MyString
+  telegram_id,: MyString
+  message,: MyString
+  error,: MyString
+  error_full_message: MyString
+
+two:
+  name,: MyString
+  telegram_id,: MyString
+  message,: MyString
+  error,: MyString
+  error_full_message: MyString
