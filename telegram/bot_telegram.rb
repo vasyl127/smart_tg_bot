@@ -44,7 +44,7 @@ class BotTelegram
                          error_full_message: errors.full_message)
     model.update(message: message.text) if message.methods.include? :text
     text = "#{I18n.t('telegram.errors.new_errors')} #{model.id}"
-    notification.notify_for_admin(text)
+    notification.notify_for_admins(text)
     puts text
   end
 end

@@ -9,9 +9,11 @@ module Telegram
     ADD_TASK          = { list_name: 'ADD_TASK', steps_list: %w[fill_name save_task] }.freeze
     USERS_LIST        = { list_name: 'USERS_LIST', steps_list: %w[show_users in_user operation_in_user] }.freeze
     ADD_USER          = { list_name: 'ADD_USER', steps_list: %w[fill_name save_users] }.freeze
-    CATEGORIES_LIST   = { list_name: 'CATEGORIES_LIST', steps_list: %w[show_categories in_category operation_in_category] }.freeze
+    CATEGORIES_LIST   = { list_name: 'CATEGORIES_LIST', steps_list: %w[show_categories in_category
+                                                                       operation_in_category] }.freeze
     ADD_CATEGORY      = { list_name: 'ADD_CATEGORY', steps_list: %w[fill_name save_category] }.freeze
     ADD_COST          = { list_name: 'ADD_COST', steps_list: %w[fill_name save_cost] }.freeze
+    SHARE_CATEGORY    = { list_name: 'SHARE_CATEGORY', steps_list: %w[show_users shared] }.freeze
 
     attr_reader :current_user, :current_step, :steps, :steps_list_name
 
@@ -54,6 +56,10 @@ module Telegram
 
     def add_category
       first_step ADD_CATEGORY
+    end
+
+    def share_category
+      first_step SHARE_CATEGORY
     end
 
     def categories_list
