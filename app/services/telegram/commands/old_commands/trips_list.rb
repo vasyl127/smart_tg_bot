@@ -79,7 +79,7 @@ module Telegram
         steps_controller.next_step
         trip.update(deleted_at: Time.now)
         { text: I18n.t('telegram.messages.trip.deleted'),
-          keyboard: keyboard.home_roles_keyboard(current_user.role) }
+          keyboard: keyboard.home_keyboard(current_user.role) }
       end
 
       def trip # rubocop:disable Metrics/AbcSize

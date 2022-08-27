@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 module Telegram
   module Commands
-    class Notifications
+    class AddCategory
       attr_reader :answer, :message, :telegram_id, :errors, :steps_controller, :params, :keyboard, :current_user,
                   :store_params
 
@@ -23,35 +21,19 @@ module Telegram
 
       def exec_command
         @answer = send(steps_controller.current_step)
+      end
+
+      def fill_name
         steps_controller.next_step
+
+        { text: I18n.t('telegram.messages.categories.add') }
       end
 
-      def notify_list
-        { text: prepare_notify, keyboard: keyboard.notifications_list }
-      end
+      def save_category
+        current_user.categories.create(name: message) if message.present?
 
-      def operation_in_notify
-        return delete_all_notify if message == keyboard.secondary_keys[:delete_all]
-      end
-
-      def prepare_notify
-        return I18n.t('telegram.errors.blank') if notifications.blank?
-
-        string = ''
-        notifications.each { |notify| string += "- #{notify.text[0..200]}\n\n" }
-
-        string
-      end
-
-      def delete_all_notify
-        notifications.delete_all if notifications.present?
-
-        { text: I18n.t('telegram.messages.notify.deleted'),
+        { text: I18n.t('telegram.messages.categories.saved'),
           keyboard: keyboard.home_keyboard(current_user.role) }
-      end
-
-      def notifications
-        @notifications ||= current_user.notifications
       end
     end
   end

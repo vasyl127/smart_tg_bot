@@ -44,7 +44,7 @@ module Telegram
         create_fuel(fuel_params)
 
         { text: I18n.t('telegram.messages.fuel_save'),
-          keyboard: keyboard.home_roles_keyboard(current_user.role) }
+          keyboard: keyboard.home_keyboard(current_user.role) }
       end
 
       def create_fuel(fuel_params)

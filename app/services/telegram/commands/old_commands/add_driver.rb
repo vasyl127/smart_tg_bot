@@ -33,7 +33,7 @@ module Telegram
         User.create(name: message, token: token, role: 'driver')
 
         { text: "Driver #{message} created, token:\n\n#{token}",
-          keyboard: keyboard.home_roles_keyboard(current_user.role) }
+          keyboard: keyboard.home_keyboard(current_user.role) }
       end
     end
   end

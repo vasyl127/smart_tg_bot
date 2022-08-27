@@ -22,13 +22,13 @@ module Telegram
       private
 
       def exec_command
-        @answer = { text: home_message, keyboard: keyboard.home_roles_keyboard(current_user.role) }
+        @answer = { text: home_message, keyboard: keyboard.home_keyboard(current_user.role) }
       end
 
       def home_message # rubocop:disable Metrics/AbcSize
         string = "#{I18n.t('telegram.messages.home.name')}\n\n"
         string += "#{I18n.t('telegram.messages.bot.work_time')}: #{bot_work_time}\n" if admin?
-        string += "#{I18n.t('telegram.messages.users.name')}: #{users_count}\n"
+        string += "#{I18n.t('telegram.messages.users.name')}: #{users_count}\n" if admin?
         string += "#{I18n.t('telegram.messages.notify.name')}: #{notifications_count}\n"
         string += "#{I18n.t('telegram.messages.tasks.name')}: #{tasks_count}\n"
         string += "#{I18n.t('telegram.messages.categories.name')}: #{categories_count}\n"

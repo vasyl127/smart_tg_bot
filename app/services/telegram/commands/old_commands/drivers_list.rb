@@ -52,7 +52,7 @@ module Telegram
         when keyboard.secondary_keys[:delete]
           delete_driver
           { text: I18n.t('telegram.messages.driver_delete'),
-            keyboard: keyboard.home_roles_keyboard(current_user.role) }
+            keyboard: keyboard.home_keyboard(current_user.role) }
         when keyboard.primary_keys[:trips_list]
           trips_list
         when keyboard.secondary_keys[:repair_requests]

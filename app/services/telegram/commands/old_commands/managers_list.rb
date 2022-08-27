@@ -41,7 +41,7 @@ module Telegram
 
         delete_manager
         { text: I18n.t('telegram.messages.manager_delete'),
-          keyboard: keyboard.home_roles_keyboard(current_user.role) }
+          keyboard: keyboard.home_keyboard(current_user.role) }
       end
 
       def managers

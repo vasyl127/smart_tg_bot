@@ -45,7 +45,7 @@ module Telegram
                end
         User.create(name: store_params.store.dig(telegram_id, :manager_name), role: role, token: token)
         { text: "#{I18n.t('telegram.messages.manager_created')}\n\n#{token}",
-          keyboard: keyboard.home_roles_keyboard(current_user.role) }
+          keyboard: keyboard.home_keyboard(current_user.role) }
       end
     end
   end

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_create :create_user_config
+  after_create :create_user_config
 
   has_one :config, dependent: :destroy
   has_many :tasks, dependent: :destroy

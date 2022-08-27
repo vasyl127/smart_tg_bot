@@ -47,7 +47,7 @@ module Telegram
       def run_command(value)
         change_step(value)
 
-        "::Telegram::Commands::#{value.capitalize}".constantize.new(params).answer
+        "::Telegram::Commands::#{value.to_s.camelize}".constantize.new(params).answer
       end
 
       def change_step(value)

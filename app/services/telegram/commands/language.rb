@@ -35,7 +35,7 @@ module Telegram
         set_language if message == keyboard.secondary_keys[:language_ua] || keyboard.secondary_keys[:language_en]
         steps_controller.default_steps
         { text: "#{current_language} #{I18n.t('telegram.messages.language_set')}",
-          keyboard: keyboard.home_roles_keyboard(current_user.role) }
+          keyboard: keyboard.home_keyboard(current_user.role) }
       end
 
       def set_language

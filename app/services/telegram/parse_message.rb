@@ -32,7 +32,7 @@ module Telegram
       return text if text.present?
 
       { text: I18n.t('telegram.errors.something'),
-        keyboard: keyboard.home_roles_keyboard(current_user.role) }
+        keyboard: keyboard.home_keyboard(current_user.role) }
     end
 
     def current_user

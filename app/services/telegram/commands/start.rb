@@ -29,7 +29,7 @@ module Telegram
 
       def hello_message
         { text: "#{current_user.name}, #{I18n.t('telegram.messages.home.hi')}",
-          keyboard: keyboard.home_roles_keyboard(current_user.role) }
+          keyboard: keyboard.home_keyboard(current_user.role) }
       end
     end
   end
