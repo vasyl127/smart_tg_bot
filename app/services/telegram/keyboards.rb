@@ -18,9 +18,11 @@ module Telegram
         add_task: locale('add_task'),
         categories_list: locale('categories_list'),
         add_category: locale('add_category'),
+        share_category: locale('share_category'),
         add_cost: locale('add_cost'),
         notifications: locale('notification'),
-        share_category: locale('share_category'),
+        weather: locale('weather'),
+        random_value: locale('random_value'),
         repair_request: locale('repair_request') }
     end
 
@@ -33,10 +35,13 @@ module Telegram
         back: locale('back') }
     end
 
-    def home_keyboard(role)
-      kb = [primary_keys[:tasks_list], primary_keys[:categories_list]]
+    def home_keyboard(role) # rubocop:disable Metrics/AbcSize
+      kb = []
+      kb << [primary_keys[:tasks_list], primary_keys[:random_value]]
+      kb << [primary_keys[:categories_list], primary_keys[:weather]]
       kb << primary_keys[:users_list] if role == 'admin'
       kb << [primary_keys[:notifications], primary_keys[:language]]
+      kb << primary_keys[:home]
 
       generate_bottom_buttons kb
     end

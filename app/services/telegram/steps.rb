@@ -14,6 +14,8 @@ module Telegram
     ADD_CATEGORY      = { list_name: 'ADD_CATEGORY', steps_list: %w[fill_name save_category] }.freeze
     ADD_COST          = { list_name: 'ADD_COST', steps_list: %w[fill_name save_cost] }.freeze
     SHARE_CATEGORY    = { list_name: 'SHARE_CATEGORY', steps_list: %w[show_users shared] }.freeze
+    WEATHER           = { list_name: 'WEATHER', steps_list: %w[show_weather] }.freeze
+    RANDOMVALUE       = { list_name: 'RANDOMVALUE', steps_list: %w[generate_value] }.freeze
 
     attr_reader :current_user, :current_step, :steps, :steps_list_name
 
@@ -68,6 +70,14 @@ module Telegram
 
     def add_cost
       first_step ADD_COST
+    end
+
+    def weather
+      first_step WEATHER
+    end
+
+    def random_value
+      first_step RANDOMVALUE
     end
 
     def next_step
