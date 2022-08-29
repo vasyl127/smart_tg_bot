@@ -25,7 +25,7 @@ module Telegram
         @answer = { text: home_message, keyboard: keyboard.home_keyboard(current_user.role) }
       end
 
-      def home_message # rubocop:disable Metrics/AbcSize
+      def home_message
         string = "#{I18n.t('telegram.messages.home.name')}\n\n"
         string += "#{I18n.t('telegram.messages.bot.work_time')}: #{bot_work_time}\n" if admin?
         string += "#{I18n.t('telegram.messages.users.name')}: #{users_count}\n" if admin?
@@ -38,8 +38,14 @@ module Telegram
 
       def bot_work_time
         work_time = Time.now.to_i - store_params.bot_start_time.to_i
+        mm, ss = work_time.divmod(60)
+        hh, mm = mm.divmod(60)
+        dd, hh = hh.divmod(24)
 
-        "#{work_time.div(3600)} h, #{work_time.div(60)} m"
+        return "#{dd} d, #{hh} h" if dd.positive?
+        return "#{hh} h, #{mm} m" if hh.positive?
+
+        "#{mm} m, #{ss} s"
       end
 
       def users_count
