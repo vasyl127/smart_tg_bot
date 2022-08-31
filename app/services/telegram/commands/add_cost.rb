@@ -31,9 +31,12 @@ module Telegram
 
       def save_cost
         category.costs.create(cost_params) if message.present?
+        steps_controller.categories_list
+        steps_controller.next_step
 
-        { text: I18n.t('telegram.messages.costs.saved'),
-          keyboard: keyboard.home_keyboard(current_user.role) }
+        ::Telegram::Commands::CategoriesList.new(params).answer
+        # { text: "#{I18n.t('telegram.messages.costs.saved')}\n\n#{prepare_in_category}",
+        #   keyboard: keyboard.in_category }
       end
 
       def cost_params
@@ -45,8 +48,26 @@ module Telegram
         end
       end
 
+      def prepare_in_category # rubocop:disable Metrics/AbcSize
+        return errors.blank if category.blank?
+
+        string = "📄 #{category.name}\n📆 #{category.created_at.strftime('%m.%d.%Y')}\n\n"
+        costs.each { |cost| string += "📈 #{cost.name} : #{cost.value}💸\n" } if costs.present?
+        string += "\n#{I18n.t('telegram.messages.total')}: #{costs_total}💸"
+
+        string
+      end
+
       def category
-        current_user.categories.find_by(name: store_params.store.dig(telegram_id, :category_name))
+        @category ||= current_user.categories.find_by(name: store_params.store.dig(telegram_id, :category_name))
+      end
+
+      def costs
+        @costs ||= category.costs
+      end
+
+      def costs_total
+        costs.pluck(:value).map(&:to_d).sum
       end
     end
   end

@@ -31,7 +31,7 @@ module Telegram
       end
 
       def in_category
-        store_params.store_value(telegram_id: telegram_id, value: { category_name: message })
+        store_params.store_value(telegram_id: telegram_id, value: { category_name: message }) if it_is_category?
 
         { text: prepare_in_category, keyboard: keyboard.in_category }
       end
@@ -46,7 +46,7 @@ module Telegram
         end
       end
 
-      def prepare_in_category
+      def prepare_in_category # rubocop:disable Metrics/AbcSize
         return errors.blank if category.blank?
 
         string = "📄 #{category.name}\n📆 #{category.created_at.strftime('%m.%d.%Y')}\n\n"
@@ -63,7 +63,7 @@ module Telegram
       end
 
       def category
-        current_user.categories.find_by(name: store_params.store.dig(telegram_id, :category_name))
+        @category ||= current_user.categories.find_by(name: store_params.store.dig(telegram_id, :category_name))
       end
 
       def categories
@@ -76,6 +76,10 @@ module Telegram
 
       def costs_total
         costs.pluck(:value).map(&:to_d).sum
+      end
+
+      def it_is_category?
+        categories.pluck(:name).include? message
       end
     end
   end

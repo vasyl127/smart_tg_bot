@@ -31,9 +31,12 @@ module Telegram
 
       def save_category
         current_user.categories.create(name: message) if message.present?
+        steps_controller.categories_list
+        steps_controller.next_step
 
-        { text: I18n.t('telegram.messages.categories.saved'),
-          keyboard: keyboard.home_keyboard(current_user.role) }
+        ::Telegram::Commands::CategoriesList.new(params).answer
+        # { text: I18n.t('telegram.messages.categories.saved'),
+        #   keyboard: keyboard.home_keyboard(current_user.role) }
       end
     end
   end
