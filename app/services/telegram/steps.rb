@@ -16,6 +16,7 @@ module Telegram
     SHARE_CATEGORY    = { list_name: 'SHARE_CATEGORY', steps_list: %w[show_users shared] }.freeze
     WEATHER           = { list_name: 'WEATHER', steps_list: %w[show_weather] }.freeze
     RANDOMVALUE       = { list_name: 'RANDOMVALUE', steps_list: %w[generate_value] }.freeze
+    COSTS_LIST        = { list_name: 'COSTS_LIST', steps_list: %w[show_costs in_cost operation_in_cost] }.freeze
 
     attr_reader :current_user, :current_step, :steps, :steps_list_name
 
@@ -66,6 +67,10 @@ module Telegram
 
     def categories_list
       first_step CATEGORIES_LIST
+    end
+
+    def costs_list
+      first_step COSTS_LIST
     end
 
     def add_cost

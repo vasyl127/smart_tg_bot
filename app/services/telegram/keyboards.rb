@@ -17,6 +17,7 @@ module Telegram
         tasks_list: locale('tasks_list'),
         add_task: locale('add_task'),
         categories_list: locale('categories_list'),
+        costs_list: locale('costs_list'),
         add_category: locale('add_category'),
         share_category: locale('share_category'),
         add_cost: locale('add_cost'),
@@ -69,8 +70,23 @@ module Telegram
     end
 
     def in_category
-      kb = [primary_keys[:add_cost], primary_keys[:share_category], secondary_keys[:delete],
+      kb = [primary_keys[:add_cost], primary_keys[:costs_list], primary_keys[:share_category], secondary_keys[:delete],
             secondary_keys[:back], primary_keys[:home]]
+
+      generate_bottom_buttons kb
+    end
+
+    def costs_list(objects)
+      kb = [primary_keys[:add_cost]]
+      objects.each { |object| kb << object.name } if objects.present?
+      kb << [secondary_keys[:back]]
+      kb << [primary_keys[:home]]
+
+      generate_bottom_buttons kb
+    end
+
+    def in_cost
+      kb = [secondary_keys[:delete], secondary_keys[:back], primary_keys[:home]]
 
       generate_bottom_buttons kb
     end

@@ -32,6 +32,7 @@ module Telegram
         string += "#{I18n.t('telegram.messages.notify.name')}: #{notifications_count}\n"
         string += "#{I18n.t('telegram.messages.tasks.name')}: #{tasks_count}\n"
         string += "#{I18n.t('telegram.messages.categories.name')}: #{categories_count}\n"
+        string += "#{I18n.t('telegram.messages.total_cost_in_mouth')}: #{total_costs}\n"
 
         string
       end
@@ -62,6 +63,19 @@ module Telegram
 
       def notifications_count
         current_user.notifications.count
+      end
+
+      def total_costs
+        total = 0
+        current_user.categories.each do |category|
+          total += category.costs.where('created_at > ?', Time.now.beginning_of_month).pluck(:value).sum
+        end
+
+        total
+      end
+
+      def this_month_costs(cost)
+        cost.created_at.strftime('%m/%Y') == Time.now.strftime('%m/%Y')
       end
 
       def admin?
