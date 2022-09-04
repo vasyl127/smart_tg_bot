@@ -54,7 +54,7 @@ module Telegram
 
       def cash_currency
         hash = {}
-        JSON.parse(Net::HTTP.get_response(URI.parse(CASH_URL)).body).each do |json_cash|
+        url_to_hash(CASH_URL).each do |json_cash|
           hash[json_cash['ccy']] = { buy: json_cash['buy'].to_f.round(2),
                                      sale: json_cash['sale'].to_f.round(2) }
         end
@@ -64,12 +64,16 @@ module Telegram
 
       def bank_currency
         hash = {}
-        JSON.parse(Net::HTTP.get_response(URI.parse(BANK_URL)).body).each do |json_bank|
+        url_to_hash(BANK_URL).each do |json_bank|
           hash[json_bank['ccy']] = { buy: json_bank['buy'].to_f.round(2),
                                      sale: json_bank['sale'].to_f.round(2) }
         end
 
         hash
+      end
+
+      def url_to_hash(url)
+        JSON.parse(Net::HTTP.get_response(URI.parse(url)).body)
       end
     end
   end
