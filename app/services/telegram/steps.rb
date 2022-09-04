@@ -17,6 +17,7 @@ module Telegram
     WEATHER           = { list_name: 'WEATHER', steps_list: %w[show_weather] }.freeze
     RANDOMVALUE       = { list_name: 'RANDOMVALUE', steps_list: %w[generate_value] }.freeze
     COSTS_LIST        = { list_name: 'COSTS_LIST', steps_list: %w[show_costs in_cost operation_in_cost] }.freeze
+    CURRENCY          = { list_name: 'CURRENCY', steps_list: %w[show_currency] }.freeze
 
     attr_reader :current_user, :current_step, :steps, :steps_list_name
 
@@ -79,6 +80,10 @@ module Telegram
 
     def weather
       first_step WEATHER
+    end
+
+    def currency
+      first_step CURRENCY
     end
 
     def random_value

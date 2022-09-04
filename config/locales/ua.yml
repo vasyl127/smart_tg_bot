@@ -17,6 +17,7 @@ ua:
       language_ua: '🇺🇦 Українська'
       delete: '🗑 Видалити'
       back: '⬅️ Назад'
+      currency: '📈 Курс валют'
       notification: '🔔 Сповіщення'
       delete_all: '🗑 Очистити все'
       random_value: '🎲 Рандом'
@@ -68,6 +69,11 @@ ua:
       authorize:
         fill_token: Введіть ключ
         success: Успішно авторизовано
+      currency:
+        name: 📈 Курс валют
+        cash_currency: 💰 Готівковий курс
+        bank_currency: 💳 Безготівковий курс
+
       chose_language: Виберіть мову, теперішня
       language_set: тепер твоя мова. Натисни /start для оновлення.
       total: Сума

@@ -23,6 +23,7 @@ module Telegram
         add_cost: locale('add_cost'),
         notifications: locale('notification'),
         weather: locale('weather'),
+        currency: locale('currency'),
         random_value: locale('random_value'),
         repair_request: locale('repair_request') }
     end
@@ -38,8 +39,8 @@ module Telegram
 
     def home_keyboard(role) # rubocop:disable Metrics/AbcSize
       kb = []
-      kb << [primary_keys[:tasks_list], primary_keys[:random_value]]
-      kb << [primary_keys[:categories_list], primary_keys[:weather]]
+      kb << [primary_keys[:tasks_list], primary_keys[:categories_list]]
+      kb << [primary_keys[:currency], primary_keys[:weather], primary_keys[:random_value]]
       kb << primary_keys[:users_list] if role == 'admin'
       kb << [primary_keys[:notifications], primary_keys[:language]]
       kb << primary_keys[:home]

@@ -31,14 +31,6 @@ module Telegram
       string
     end
 
-    def incorect_fuel_capacity
-      add_errors(I18n.t('telegram.errors.incorect_fuel_capacity'))
-    end
-
-    def incorect_fuel_price
-      add_errors(I18n.t('telegram.errors.incorect_fuel_price'))
-    end
-
     def not_permission
       add_errors(I18n.t('telegram.errors.not_permission'))
     end

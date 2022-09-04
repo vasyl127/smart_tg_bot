@@ -30,7 +30,7 @@ module Telegram
       end
 
       def save_cost
-        category.costs.create(cost_params) if message.present? && costs.present?
+        category.costs.create(cost_params) if message.present?
         steps_controller.categories_list
         steps_controller.next_step
 
