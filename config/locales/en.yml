@@ -1,77 +1,85 @@
 en:
   telegram:
     buttons:
-      home: '🏠 Домашня сторінка'
-      tasks_list: 💼 Задачі
-      add_task: '✅ Додати задачу'
-      categories_list: 📑 Витрати
-      costs_list: 📈 Список витрат
-      add_category: '✅ Додати категорію'
-      share_category: '🌐 Поділитись'
-      add_cost: '✅ Додати витрату'
-      users_list: 👥 Користувачі
-      add_user: '✅ Додати користувача'
-      weather: '🌤 Погода'
-      language: '🇺🇦 Мова 🇺🇸'
-      language_en: '🇺🇸 Англійська'
-      language_ua: '🇺🇦 Українська'
-      delete: '🗑 Видалити'
-      back: '⬅️ Назад'
-      notification: '🔔 Сповіщення'
-      delete_all: '🗑 Очистити все'
-      random_value: '🎲 Рандом'
-      add: '✅ Додати'
+      home: '🏠 Home screen'
+      tasks_list: 💼 Tasks
+      add_task: '✅ Add task'
+      categories_list: 📑 Costs
+      costs_list: 📈 Costs list
+      add_category: '✅ Add category'
+      share_category: '🌐 Share'
+      add_cost: '✅ Add cost'
+      users_list: 👥 Users
+      add_user: '✅ Add user'
+      weather: '🌤 Weather'
+      language: '🇺🇦 Language 🇺🇸'
+      language_en: '🇺🇸 English'
+      language_ua: '🇺🇦 Ukrainian'
+      delete: '🗑 Delete'
+      back: '⬅️ Back'
+      currency: '📈 Exchange rate'
+      notification: '🔔 Notification'
+      delete_all: '🗑 Delete all'
+      random_values: '🎲 Random'
+      add_random_value: '🎲 Generate random value'
+      add: '✅ Add'
     errors:
-      blank: Записи відсутні
-      error: Помилки
-      new_errors: Зʼявилась нова помилка, id
-      something: Упсс, щось пішло не так
-      user_absent: Не можу знайти користувача =(
-      incorect_token: Перевірте правильність вводу ключа
-      incorect_fuel_capacity: Невірний формат літражу
-      incorect_fuel_price: Невірний формат ціни
-      not_permission: Немає прав
+      blank: No records
+      error: Errors
+      new_errors: Have a new error, id
+      something: Oops, something went wrong
+      user_absent: Can't find a user =(
+      incorect_token: Check that the key is entered correctly
+      not_permission: Not permission
     messages:
       bot:
         work_time: 🤖 Bot work time 
       users:
-        name: 👥 Користувачі
-        add: Введіть назву користувача
-        saved: Користувача успішно збережено
-        deleted: Користувача успішно видалено
+        name: 👥 Users
+        add: Enter a name user
+        saved: User saved successfully
+        deleted: User deleted successfully
       tasks:
-        name: 💼 Задачі
-        add: Введіть задачу
-        saved: Задачу успішно збережено
-        deleted: Задачу успішно видалено
+        name: 💼 Tasks
+        add: Enter a name task
+        saved: Task saved successfully
+        deleted: Task deleted successfully
       categories:
-        name: 📑 Категорії
-        add: Введіть назву категорії
-        saved: Категорію успішно збережено
-        deleted: Категорію успішно видалено
-        shared: Успішно розшарено з користувачем
-        notify: поділився з Вами категорією
+        name: 📑 Categories
+        add: Enter a name category
+        saved: Category saved successfully
+        deleted: Category deleted successfully
+        shared: Category shared successfully
+        notify: shared with you category
       costs:
-        name: 📑 Витрати
-        add: Введіть назву витрати, використайте ':' для ціни. Приклад 'Сільпо:1400'
-        saved: Витрату успішно збережено
-        deleted: Витрату успішно видалено
+        name: 📑 Costs
+        add: Enter a name cost, use ':' for price. Example 'Сільпо:1400'
+        saved: Cost saved successfully
+        deleted: Cost deletd successfully
       random:
-        name: Рандом
+        name: Random
+        add: Enter a name random value
+        saved: Random value saved successfully
+        deleted: Random value deleted successfully
       notify:
-        name: 🔔 Сповіщення
-        new: У вас нове сповіщення
-        deleted: Сповіщення очищено
+        name: 🔔 Notifications
+        new: You have a new notification
+        deleted: Notification clear
       home:
-        name: 🏠 Домашня сторінка 🏠
-        hi: привіт!
+        name: 🏠 Home screen 🏠
+        hi: hi!
       authorize:
-        fill_token: Введіть ключ
-        success: Успішно авторизовано
-      chose_language: Виберіть мову, теперішня
-      language_set: тепер твоя мова. Натисни /start для оновлення.
-      total: Сума
-      total_cost_in_mouth: 💸 Цього місяця
+        fill_token: Enter a key
+        success: Successfully authorized
+      currency:
+        name: 📈 Exchange rate
+        cash_currency: 💰 Cash rate
+        bank_currency: 💳 Bank course (NBU)
+
+      chose_language: Select the language, current
+      language_set: is now your language. Press /start to update.
+      total: Total
+      total_cost_in_mouth: 💸 This month
 
 
 

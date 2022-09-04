@@ -32,7 +32,7 @@ module Telegram
 
       def prepare_weather
         string = "📍 #{data.name} #{to_celsius data.main.temp}°C\n#{description}\n"
-        string += min_and_max_temp + sunset_and_sunrise + humidity_and_wind
+        string += sunset_and_sunrise + humidity_and_wind
 
         string
       end
