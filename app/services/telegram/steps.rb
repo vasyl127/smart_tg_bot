@@ -2,22 +2,24 @@
 
 module Telegram
   class Steps
-    HOME              = { list_name: 'HOME', steps_list: %w[home_screen] }.freeze
-    LANGUAGE          = { list_name: 'LANGUAGE', steps_list: %w[language_list language_set] }.freeze
-    NOTIFICATIONS     = { list_name: 'NOTIFICATIONS', steps_list: %w[notify_list operation_in_notify] }.freeze
-    TASKS_LIST        = { list_name: 'TASKS_LIST', steps_list: %w[show_tasks in_task operation_in_task] }.freeze
-    ADD_TASK          = { list_name: 'ADD_TASK', steps_list: %w[fill_name save_task] }.freeze
-    USERS_LIST        = { list_name: 'USERS_LIST', steps_list: %w[show_users in_user operation_in_user] }.freeze
-    ADD_USER          = { list_name: 'ADD_USER', steps_list: %w[fill_name save_users] }.freeze
-    CATEGORIES_LIST   = { list_name: 'CATEGORIES_LIST', steps_list: %w[show_categories in_category
-                                                                       operation_in_category] }.freeze
-    ADD_CATEGORY      = { list_name: 'ADD_CATEGORY', steps_list: %w[fill_name save_category] }.freeze
-    ADD_COST          = { list_name: 'ADD_COST', steps_list: %w[fill_name save_cost] }.freeze
-    SHARE_CATEGORY    = { list_name: 'SHARE_CATEGORY', steps_list: %w[show_users shared] }.freeze
-    WEATHER           = { list_name: 'WEATHER', steps_list: %w[show_weather] }.freeze
-    RANDOMVALUE       = { list_name: 'RANDOMVALUE', steps_list: %w[generate_value] }.freeze
-    COSTS_LIST        = { list_name: 'COSTS_LIST', steps_list: %w[show_costs in_cost operation_in_cost] }.freeze
-    CURRENCY          = { list_name: 'CURRENCY', steps_list: %w[show_currency] }.freeze
+    HOME                = { list_name: 'HOME', steps_list: %w[home_screen] }.freeze
+    LANGUAGE            = { list_name: 'LANGUAGE', steps_list: %w[language_list language_set] }.freeze
+    NOTIFICATIONS       = { list_name: 'NOTIFICATIONS', steps_list: %w[notify_list operation_in_notify] }.freeze
+    TASKS_LIST          = { list_name: 'TASKS_LIST', steps_list: %w[show_tasks in_task operation_in_task] }.freeze
+    ADD_TASK            = { list_name: 'ADD_TASK', steps_list: %w[fill_name save_task] }.freeze
+    USERS_LIST          = { list_name: 'USERS_LIST', steps_list: %w[show_users in_user operation_in_user] }.freeze
+    ADD_USER            = { list_name: 'ADD_USER', steps_list: %w[fill_name save_users] }.freeze
+    CATEGORIES_LIST    = { list_name: 'CATEGORIES_LIST',
+                           steps_list: %w[show_categories in_category operation_in_category] }.freeze
+    ADD_CATEGORY       = { list_name: 'ADD_CATEGORY', steps_list: %w[fill_name save_category] }.freeze
+    ADD_COST           = { list_name: 'ADD_COST', steps_list: %w[fill_name save_cost] }.freeze
+    SHARE_CATEGORY     = { list_name: 'SHARE_CATEGORY', steps_list: %w[show_users shared] }.freeze
+    WEATHER            = { list_name: 'WEATHER', steps_list: %w[show_weather] }.freeze
+    ADD_RANDOM_VALUE   = { list_name: 'ADD_RANDOM_VALUE', steps_list: %w[fill_name save_random_value] }.freeze
+    RANDOM_VALUES_LIST = { list_name: 'RANDOM_VALUES_LIST',
+                           steps_list: %w[show_random_values in_random_value operation_in_random_value] }.freeze
+    COSTS_LIST         = { list_name: 'COSTS_LIST', steps_list: %w[show_costs in_cost operation_in_cost] }.freeze
+    CURRENCY           = { list_name: 'CURRENCY', steps_list: %w[show_currency] }.freeze
 
     attr_reader :current_user, :current_step, :steps, :steps_list_name
 
@@ -88,6 +90,14 @@ module Telegram
 
     def random_value
       first_step RANDOMVALUE
+    end
+
+    def add_random_value
+      first_step ADD_RANDOM_VALUE
+    end
+
+    def random_values_list
+      first_step RANDOM_VALUES_LIST
     end
 
     def next_step
