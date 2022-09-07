@@ -20,9 +20,12 @@ en:
       currency: '📈 Exchange rate'
       notification: '🔔 Notification'
       delete_all: '🗑 Delete all'
-      random_values: '🎲 Random'
+      random_value: '🎲 Random'
       add_random_value: '🎲 Generate random value'
+      random_values_list: '🎲 Random values list 🎲'
       add: '✅ Add'
+      yes_or_no: '🎲 Yes or No? 🎲'
+      random_in_range: '🎲 A random number from 1 to 10 🎲'
     errors:
       blank: No records
       error: Errors
@@ -61,6 +64,10 @@ en:
         add: Enter a name random value
         saved: Random value saved successfully
         deleted: Random value deleted successfully
+        yes_value: Yes
+        no_value: No
+        maybe_value: Maybe
+
       notify:
         name: 🔔 Notifications
         new: You have a new notification
@@ -75,7 +82,7 @@ en:
         name: 📈 Exchange rate
         cash_currency: 💰 Cash rate
         bank_currency: 💳 Bank course (NBU)
-
+      chose: 'Chose:'
       chose_language: Select the language, current
       language_set: is now your language. Press /start to update.
       total: Total

@@ -9,7 +9,7 @@ module Telegram
       @secondary_keys = secondary_keys_list
     end
 
-    def primary_keys_list # rubocop:disable Metrics/MethodLength
+    def primary_keys_list # rubocop:disable Metrics/MethodLength Metrics/AbcSize
       { home: locale('home'),
         language: locale('language'),
         users_list: locale('users_list'),
@@ -25,7 +25,8 @@ module Telegram
         weather: locale('weather'),
         currency: locale('currency'),
         add_random_value: locale('add_random_value'),
-        random_values_list: locale('random_values'),
+        random_values_list: locale('random_values_list'),
+        random_value: locale('random_value'),
         repair_request: locale('repair_request') }
     end
 
@@ -34,6 +35,8 @@ module Telegram
         delete_all: locale('delete_all'),
         language_ua: locale('language_ua'),
         language_en: locale('language_en'),
+        yes_or_no: locale('yes_or_no'),
+        random_in_range: locale('random_in_range'),
         add: locale('add'),
         back: locale('back') }
     end
@@ -41,7 +44,7 @@ module Telegram
     def home_keyboard(role) # rubocop:disable Metrics/AbcSize
       kb = []
       kb << [primary_keys[:tasks_list], primary_keys[:categories_list]]
-      kb << [primary_keys[:currency], primary_keys[:weather], primary_keys[:random_values_list]]
+      kb << [primary_keys[:currency], primary_keys[:weather], primary_keys[:random_value]]
       kb << primary_keys[:users_list] if role == 'admin'
       kb << [primary_keys[:notifications], primary_keys[:language]]
       kb << primary_keys[:home]
@@ -89,6 +92,14 @@ module Telegram
 
     def in_cost
       kb = [secondary_keys[:delete], secondary_keys[:back], primary_keys[:home]]
+
+      generate_bottom_buttons kb
+    end
+
+    def random_value
+      kb = [[secondary_keys[:yes_or_no]], [secondary_keys[:random_in_range]]]
+      kb << primary_keys[:random_values_list]
+      kb << primary_keys[:home]
 
       generate_bottom_buttons kb
     end

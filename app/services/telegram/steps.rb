@@ -20,6 +20,7 @@ module Telegram
                            steps_list: %w[show_random_values in_random_value operation_in_random_value] }.freeze
     COSTS_LIST         = { list_name: 'COSTS_LIST', steps_list: %w[show_costs in_cost operation_in_cost] }.freeze
     CURRENCY           = { list_name: 'CURRENCY', steps_list: %w[show_currency] }.freeze
+    RANDOM_VALUE       = { list_name: 'RANDOM_VALUE', steps_list: %w[show_func operations_in_random] }.freeze
 
     attr_reader :current_user, :current_step, :steps, :steps_list_name
 
@@ -89,7 +90,7 @@ module Telegram
     end
 
     def random_value
-      first_step RANDOMVALUE
+      first_step RANDOM_VALUE
     end
 
     def add_random_value
