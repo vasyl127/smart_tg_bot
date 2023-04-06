@@ -35,6 +35,7 @@ gem 'rails-i18n'
 gem 'telegram-bot-ruby'
 gem 'foreman'
 gem 'open-weather-ruby-client'
+gem "ruby-openai"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

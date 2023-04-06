@@ -27,7 +27,8 @@ module Telegram
         add_random_value: locale('add_random_value'),
         random_values_list: locale('random_values_list'),
         random_value: locale('random_value'),
-        repair_request: locale('repair_request') }
+        repair_request: locale('repair_request'),
+        ask_me: locale('ask_me') }
     end
 
     def secondary_keys_list
@@ -47,6 +48,7 @@ module Telegram
       kb << [primary_keys[:currency], primary_keys[:weather], primary_keys[:random_value]]
       kb << primary_keys[:users_list] if role == 'admin'
       kb << [primary_keys[:notifications], primary_keys[:language]]
+      kb << primary_keys[:ask_me]
       kb << primary_keys[:home]
 
       generate_bottom_buttons kb
@@ -140,6 +142,12 @@ module Telegram
 
     def language_keyboard
       kb = [[secondary_keys[:language_ua], secondary_keys[:language_en]], primary_keys[:home]]
+
+      generate_bottom_buttons kb
+    end
+
+    def ask_me_keyboard
+      kb = [primary_keys[:home]]
 
       generate_bottom_buttons kb
     end

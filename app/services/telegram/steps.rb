@@ -21,6 +21,7 @@ module Telegram
     COSTS_LIST         = { list_name: 'COSTS_LIST', steps_list: %w[show_costs in_cost operation_in_cost] }.freeze
     CURRENCY           = { list_name: 'CURRENCY', steps_list: %w[show_currency] }.freeze
     RANDOM_VALUE       = { list_name: 'RANDOM_VALUE', steps_list: %w[show_func operations_in_random] }.freeze
+    ASK_ME             = { list_name: 'ASK_ME', steps_list: %w[start_massage question] }.freeze
 
     attr_reader :current_user, :current_step, :steps, :steps_list_name
 
@@ -99,6 +100,10 @@ module Telegram
 
     def random_values_list
       first_step RANDOM_VALUES_LIST
+    end
+
+    def ask_me
+      first_step ASK_ME
     end
 
     def next_step

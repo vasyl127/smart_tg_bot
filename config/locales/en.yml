@@ -26,6 +26,7 @@ en:
       add: '✅ Add'
       yes_or_no: '🎲 Yes or No? 🎲'
       random_in_range: '🎲 A random number from 1 to 10 🎲'
+      ask_me: 'Ask me'
     errors:
       blank: No records
       error: Errors
@@ -87,6 +88,8 @@ en:
       language_set: is now your language. Press /start to update.
       total: Total
       total_cost_in_mouth: 💸 This month
+      ask_me_start: Ask me smt (this may take a few minutes)
+
 
 
 

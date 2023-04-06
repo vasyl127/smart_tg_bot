@@ -1,7 +1,7 @@
 module Telegram
   module Commands
     class Weather
-      TOKEN = Figaro.env.weather_token
+      TOKEN = ENV.fetch('WEATHER_TOKEN') || Figaro.env.weather_token
 
       attr_reader :answer, :message, :telegram_id, :errors, :steps_controller, :params, :keyboard, :current_user,
                   :store_params

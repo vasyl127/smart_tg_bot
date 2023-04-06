@@ -4,7 +4,7 @@ require File.expand_path('../config/environment', __dir__)
 require 'telegram/bot'
 
 class BotTelegram
-  TOKEN = Figaro.env.telegram_token
+  TOKEN = ENV.fetch('TELEGRAM_TOKEN') || Figaro.env.telegram_token
 
   attr_reader :bot_controller, :notification
 

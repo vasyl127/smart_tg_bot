@@ -75,6 +75,11 @@ module Telegram
         steps_controller.notifications if it_is_command?
         ::Telegram::Commands::Notifications.new(params).answer
       end
+
+      def ask_me
+        steps_controller.ask_me if it_is_command?
+        ::Telegram::Commands::AskMe.new(params).answer
+      end
     end
   end
 end
